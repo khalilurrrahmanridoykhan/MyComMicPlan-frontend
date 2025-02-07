@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './Login';
 import Forms from './Forms';
 import AdminPanel from './AdminPanel'; // Import the AdminPanel component
+import CreateProject from './CreateProject';
 
 const App = () => {
   const [authToken, setAuthToken] = useState(sessionStorage.getItem('authToken'));
@@ -17,6 +18,8 @@ const App = () => {
         <Route path="/login" element={authToken ? <Navigate to="/admin" /> : <Login setAuthToken={setAuthToken} />} />
         <Route path="/forms" element={authToken ? <Forms /> : <Navigate to="/login" />} />
         <Route path="/admin" element={authToken ? <AdminPanel setAuthToken={setAuthToken} /> : <Navigate to="/login" />} />
+        <Route path="/create-project" element={authToken ? <CreateProject /> : <Navigate to="/login" />} />
+
       </Routes>
     </Router>
   );

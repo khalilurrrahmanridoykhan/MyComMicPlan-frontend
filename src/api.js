@@ -17,3 +17,5 @@ API.interceptors.request.use((config) => {
 
 export const fetchForms = () => API.get('forms/');
 export const submitForm = (data) => API.post('submissions/', data);
+export const fetchProjects = () => API.get('projects/');
+export const createProject = (data) => API.post('projects/', data);
